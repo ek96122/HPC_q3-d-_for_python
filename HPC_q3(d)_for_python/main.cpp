@@ -9,7 +9,7 @@
 #include <iostream>
 #include <vector>
 #include "TriMatrix.h"
-
+#include <fstream>
 
 using namespace std;
 
@@ -71,15 +71,16 @@ int main(int argc, const char * argv[]){
         u2=Left/Right.multi(u1);
         u1=u2;}
     
-    cout<<endl;
-    cout <<"time-integration output" <<endl;
-    for (int i=0; i<u1.size(); i++){
-        cout<<u1[i] << endl;
+
     }
     
-    
-    
+ofstream fout;
+fout.open("results.txt");
+fout << (*u1)[(Nx+1)/2] << endl;
+fout.close();
+cout<<"done"<<endl;
+
     return 0;
-    
+
     
 }
